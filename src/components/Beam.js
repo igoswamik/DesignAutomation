@@ -25,7 +25,6 @@ function Beam() {
     dia1 = 20;
 
   const handleDimensionSubmit = () => {
-    console.log("sub L,B=", L1, b1, fck1, fy1, LL1, dcov1);
     let newobj = {
       L: L1,
       b: b1,
@@ -36,17 +35,14 @@ function Beam() {
       dia: dia1,
     };
     setObj(newobj);
-    console.log("set L,B=", obj.L, obj.b, fck1, fy1, LL1, obj.dcov);
     if (L1 < 0) {
       prompt("Enter positive value");
     }
   };
 
-  console.log("rendering L,B=", obj.L, b1);
-
   return (
     <div>
-      <h3>Simply-supported RCC beam design</h3>
+      <h3>Enter the following design parameters</h3>
       {obj.L < 0 ? (
         <div className="card">
           <section>
@@ -56,7 +52,6 @@ function Beam() {
             <input
               type="text"
               id="mylen"
-              // value={obj.l}
               placeholder="Enter length in mm"
               onChange={(e) => {
                 L1 = e.target.value;
